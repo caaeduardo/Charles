@@ -1,0 +1,515 @@
+body 
+{
+    background-color: #000000;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+header
+{
+    position: absolute; 
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 100;
+
+}
+
+header.logo
+{
+    width: 200px;
+    height: 200px;
+    margin-right: 0px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    cursor: pointer;
+}
+
+header nav
+{
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+header nav a
+{
+    color: aquamarine;
+    text-decoration: none;
+    margin-right: 40px;
+    font-size: 13px;
+    font-weight: semibold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover
+{
+    color: #ffffff;
+}
+
+header button
+{
+    background-color: aquamarine;
+    color: #000000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;    
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+header button:hover
+{
+    background-color: #9bd0ff;
+    color: #ffffff;
+}   
+section
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #000000;
+    text-align: center;
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.5;
+    padding: 20px;
+}
+section p
+{
+    margin-bottom: 20px;
+}
+
+section .hero
+{
+    position: relative;
+/* Importante para posicionar o conteúdo dentro */
+}
+section .background-video
+{
+    width: 100%;
+    height: auto;
+    display: block; /* Para evitar espaços extras abaixo do vídeo */
+    position: absolute;
+    top: 0;
+    
+    
+}
+section .hero-content
+{
+    position: absolute; /* Posiciona o conteúdo em relação ao .hero */
+    top: 50%; /* Centraliza verticalmente */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta o centro do elemento */
+    color: rgb(255, 255, 255); /* Cor do texto (ajuste conforme necessário) */
+    text-align: center; /* Centraliza o texto horizontalmente */
+    width: 100%; /* Garante que o conteúdo ocupe toda a largura */
+    z-index: 1; /* Garante que o conteúdo fique acima do vídeo */
+}
+
+section .hero-content h1
+{
+    font-size: 48px;
+    margin-bottom: 20px;
+    
+
+}
+
+.texto-animado
+{
+    color: aquamarine;
+}
+.container {
+    width: 100%;
+    height: 100vh;
+    padding: 120px;
+    background-color: #010101;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.titulo {
+    text-align: center;
+    margin-bottom: 50px;
+    color: #ffffff;
+    font-size: 2.8em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.5;
+}
+
+.caracteristicas {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.caracteristica {
+    text-align: center;
+    padding: 20px;
+    border: 4px solid aquamarine;
+    background-color: #1d1c1c;
+    border-radius: 25px;
+    margin-bottom: 20px;
+    width: 20%;
+    min-width: 250px;
+}
+
+.caracteristica img {
+    width: 200px;
+    height: 300px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.caracteristica h3 {
+    color: aquamarine;
+    margin-bottom: 10px;
+}
+
+.caracteristica p {
+    color: #fffefe;
+    line-height: 1.6;
+}
+
+
+.sobre {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 100%;
+    padding: 20px;
+    background-color: #000000;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.sobre:hover {
+    transform: translateY(-5px);
+}
+
+.sobre h1 {
+    font-size: 2.8em;
+    color: #ffffff;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+}
+.sobre h3 {
+    font-size: 1.2em;
+    color: aquamarine;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.sobre p {
+    font-size: 1.1em;
+    color: #ffffff;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.sobre strong {
+    margin-bottom: 25px;
+    color:aquamarine;
+
+
+}
+
+.sobre .logo {
+    max-width: 250px;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+    text-align: center;
+
+}
+
+.sobre .logo:hover {
+    transform: scale(1.1);
+}
+
+.contato {
+    background-color: #141313;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+    width: 100%;
+    max-width: 800px;
+    margin: 00px auto;
+    
+}
+
+.contato h1 {
+    font-size: 2.8em;
+    color: #ffffff;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.contato p {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #f8f6f6;
+}
+
+.contato form input[type="text"],
+.contato form input[type="email"],
+.contato form input[type="tel"],
+.contato form textarea {
+    width: calc(50% - 10px);
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid rgb(65, 132, 110);
+    border-radius: 20px;
+    box-sizing: border-box;
+}
+
+.contato form textarea {
+    width: 100%;
+    height: 150px;
+    resize: vertical;
+    border-radius: 10px;
+}
+
+.contato form button {
+    background-color: #3fb5a5;
+    color: #fff;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.contato form button:hover {
+    background-color: #ae18c2;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.radio-group {
+    margin-bottom: 20px;
+}
+
+.radio-group label {
+    margin-left: 5px;
+    color: #f8f6f6;
+}
+#footer {
+    background: rgb(32, 32, 32);
+    width: 120%;
+    padding: 30px 0;
+    margin-top: 80px;
+  }  
+  
+  #footer h4 {
+    font-size: 18px;
+    color: #ffffff;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  #footer p {
+    text-align: center;
+    font-size: 14px;
+  }
+  
+  #footer .copyright {  
+    text-align: center;
+    padding-top: 30px;
+    color: #ffffff;
+  }
+  
+  #footer .credits {
+    text-align: center;
+    color: #fefdfd;
+    font-size: 15px;
+  }
+
+  #footer .credits a {
+    color: #ffffff;
+  }
+  
+  #footer .social-icons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  #footer .social-icons a {
+    display: inline-block;
+    margin: 0 10px;
+    color: #ffffff;
+    font-size: 20px;
+    transition: color 0.3s ease;
+  }
+  
+  #footer .social-icons a:hover {
+    color: #ae18c2;
+  }
+
+.login {
+    
+        background-color: rgb(24, 25, 25);
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(160, 20, 20, 0.1);
+        max-width: 800px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, sans-serif;
+        margin-top:30px;
+
+}
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.form-login, .quote-login {
+    padding: 32px;
+    width: 50%;
+}
+.form-login {
+    border-right: 1px solid #4a5568;
+}
+.form-login h2 {
+    color: #8be4ac;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 24px;
+}
+.form-login input[type="text"],
+.form-login input[type="email"],
+.form-login input[type="password"] {
+    background-color: #333;
+    border: none;
+    border-radius: 4px;
+    color: #e2e8f0;
+    margin-bottom: 16px;
+    padding: 12px;
+    width: 100%;
+}
+.form-login button {
+    background-color: aquamarine;
+    border: none;
+    border-radius: 4px;
+    color: #090909;
+    font-weight: bold;
+    padding: 12px;
+    width: 100%;
+    cursor: pointer;
+}
+.form-login button:hover {
+    background-color: #76e4b6;
+}
+.form-login  .text-center {
+    font-size: 14px;
+    margin-top: 16px;
+    color: white
+}
+.form-login .text-center a {
+    color: #8be4ac;
+    text-decoration: none;
+}
+.form-login .text-center a:hover {
+    text-decoration: underline;
+
+}
+.quote-login
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.quote-login h2 {
+    color: #8be4ac;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 24px;
+}
+.quote-login p {
+    color: #8be4ac;
+    font-size: 18px;
+    text-align: center;
+    line-height: 1.5;
+
+}
+.button-home {
+    background-color: #3b3b3b;
+    border: none;
+    border-radius: 20px;
+    color: #090909;
+    font-weight: bold;
+    padding: 12px;
+    width: 15%;
+    cursor: pointer;
+}
+.button-home:hover {
+    background-color: #76e4b6;
+}
+.button-home a {
+    text-decoration: none;
+    color: #fcfdfc;
+}
+.form-login input[type="text"]:focus,
+.form-login input[type="email"]:focus,
+.form-login input[type="password"]:focus {
+    outline: none;
+    border: 2px solid #8be4ac;
+}
+.form-login input[type="text"]::placeholder,
+.form-login input[type="email"]::placeholder,
+.form-login input[type="password"]::placeholder {
+    color: #8be4ac;
+}
+.form-login input[type="text"]::-webkit-input-placeholder,
+.form-login input[type="email"]::-webkit-input-placeholder,
+.form-login input[type="password"]::-webkit-input-placeholder {
+    color: #8be4ac;
+}
+.form-login input[type="text"]::-moz-placeholder,
+.form-login input[type="email"]::-moz-placeholder,
+.form-login input[type="password"]::-moz-placeholder {
+    color: #8be4ac;
+}
+.form-login input[type="text"]::-ms-input-placeholder,
+.form-login input[type="email"]::-ms-input-placeholder,
+.form-login input[type="password"]::-ms-input-placeholder {
+    color: #8be4ac;
+}
