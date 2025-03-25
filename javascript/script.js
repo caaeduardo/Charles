@@ -1,73 +1,88 @@
-document.addEventListener('DOMContentLoaded', function() {
+import * as api from "./api.js";
+
+//-----------------------------------------------------------------------------------------------------------
+// ANIMAÇÃO DE TEXTO
+//-----------------------------------------------------------------------------------------------------------
+
+document.addEventListener("DOMContentLoaded", function () {
   const typedTextSpan = document.querySelector(".texto-animado");
-const textArray = ["em cada Solicitação", "em cada Chamado","É Charles²"]
+  const textArray = ["em cada Solicitação", "em cada Chamado", "É Charles²"];
   const typingDelay = 100;
   const erasingDelay = 150;
-  const newTextDelay = 1000; 
+  const newTextDelay = 1000;
   let textArrayIndex = 0;
   let charIndex = 0;
 
   function type() {
-      if (charIndex < textArray[textArrayIndex].length) {
-          typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
-          charIndex++;
-          setTimeout(type, typingDelay);
-      } else {
-          setTimeout(erase, newTextDelay);
-      }
+    if (charIndex < textArray[textArrayIndex].length) {
+      typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+      charIndex++;
+      setTimeout(type, typingDelay);
+    } else {
+      setTimeout(erase, newTextDelay);
+    }
   }
 
   function erase() {
-      if (charIndex > 0) {
-          typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
-          charIndex--;
-          setTimeout(erase, erasingDelay);
-      } else {
-          textArrayIndex++;
-          if (textArrayIndex >= textArray.length) textArrayIndex = 0;
-          setTimeout(type, typingDelay + 500);
-      }
+    if (charIndex > 0) {
+      typedTextSpan.textContent = textArray[textArrayIndex].substring(
+        0,
+        charIndex - 1
+      );
+      charIndex--;
+      setTimeout(erase, erasingDelay);
+    } else {
+      textArrayIndex++;
+      if (textArrayIndex >= textArray.length) textArrayIndex = 0;
+      setTimeout(type, typingDelay + 500);
+    }
   }
 
   function init() {
-      typedTextSpan.textContent = textArray[textArrayIndex];
-      charIndex = textArray[textArrayIndex].length;
-      setTimeout(erase, newTextDelay);
+    typedTextSpan.textContent = textArray[textArrayIndex];
+    charIndex = textArray[textArrayIndex].length;
+    setTimeout(erase, newTextDelay);
   }
 
   init();
 });
 
-// Requisição do API
+//-----------------------------------------------------------------------------------------------------------
+// ENVIAR REQUISIÇÃO DE CONTATO
+//-----------------------------------------------------------------------------------------------------------
 
-const https = require('https');
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("contactForm");
 
-const options = {
-  hostname: 'api.exemplo.com',
-  path: '/data',
-  method: 'GET'
-};
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
 
-const req = https.request(options, res => {
-  let data = '';
+    const nome = document.getElementById("nome").value;
+    const telefone = document.getElementById("telefone").value;
+    const email = document.getElementById("email").value;
+    const cidade = document.getElementById("cidade").value;
+    const mensagem = document.getElementById("mensagem").value;
+    const tipoPlano = document.querySelector(
+      'input[name="tipo_plano"]:checked'
+    )?.value;
 
-  res.on('data', chunk => {
-    data += chunk;
-  });
+    const body = {
+      name: nome,
+      phone: telefone,
+      email: email,
+      city: cidade,
+      personType: tipoPlano === "pf" ? "PF" : "PJ",
+      message: mensagem,
+    };
 
-  res.on('end', () => {
     try {
-      const jsonData = JSON.parse(data);
-      console.log('Dados recebidos:', jsonData);
+      await api.sendRequest("/contactRequest/send", body, "POST");
+
+      alert("Mensagem enviada com sucesso!");
+      form.reset();
     } catch (error) {
-      console.error('Erro ao parsear JSON:', error);
-      console.log('Resposta não JSON:', data);
+      console.error(error);
+      alert("Erro: " + error.message);
     }
   });
 });
-
-req.on('error', error => {
-  console.error('Erro na requisição:', error);
-});
-
-req.end(); // Envia a requisição
